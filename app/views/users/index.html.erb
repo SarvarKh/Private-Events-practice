@@ -1,9 +1,1 @@
-<article>
-    <% @users.each do |user| %>
-        <ul>
-            <li> <strong>Name:</strong> <%= link_to user.name, user %> </li>
-            <li> <strong>Email:</strong> <%= user.email %> </li>
-        </ul>
-    <% end %>
-    <%= link_to "New User", new_user_path %>
-</article>
+<%= render "article", user: @user %>
