@@ -1,14 +1,22 @@
 <article>
-    <ul>
-        <li> <strong>Name:</strong> <%= @user.name %> </li>
-        <li> <strong>Email:</strong> <%= @user.email %> </li>
-    </ul>
+    <div class="p-1 m-3">
+        <h3> <strong>Name:</strong> <%= @user.name %> </h3>
+        <p> <strong>Email:</strong> <%= @user.email %> </p>
+        <h6> My Events: </h6>
+    </div>
 
     <% @user.events.each do |event| %>
-        <p><strong>Event Start Date and Time:</strong> <%= event.date %></p>
+        <div class="border border-secondary p-2 m-3">
+            <p><strong>Event Description:</strong> <%= event.description %></p>
+            <p><strong>Event Start Date and Time:</strong> <%= event.date %></p>
+        </div>
     <% end %>
-    <p><%= link_to "Edit", edit_user_path(@user) %></p>
-    <p><%= link_to 'Destroy', user_path(@user),
-                    method: :delete,
-                    data: {confirm: "Are you sure?" } %></p>
+
+    <div class="p-1 m-3">
+        <p><%= link_to "Edit", edit_user_path(@user) %></p>
+        <p><%= link_to 'Destroy', user_path(@user),
+                        method: :delete,
+                        data: {confirm: "Are you sure?" } %></p>
+    </div>
+
 </article>
