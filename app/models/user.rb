@@ -1,4 +1,6 @@
 class User < ApplicationRecord
     has_many :events, foreign_key: :creator_id
-    accepts_nested_attributes_for :events
+    
+    has_many :attendances, foreign_key: :attendee_id
+    has_many :attendees, through: :attendances
 end
