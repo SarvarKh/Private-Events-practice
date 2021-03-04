@@ -3,5 +3,7 @@ Rails.application.routes.draw do
   resources :sessions
   root "events#index"
   resources :users
-  resources :events
+  resources :events do
+    resources :attendees
+  end
 end

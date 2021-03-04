@@ -6,9 +6,21 @@
             <div class="border border-secondary rounded p-4 mb-3">
                 <p> <strong>Description:</strong> <%= upcoming.description %> </p>
                 <p> <strong>Starts at:</strong> <%= upcoming.date %> </p>
-                
-               
-                
+                <br>
+                <div>
+                    <div>
+                        <p> <strong>Attendees:</strong> </p>               
+                        <% upcoming.attendees.each do |attendee| %>
+                            <ol>
+                                <li><%= attendee.name %></li>
+                            </ol>
+                        <% end %>
+                    </div>
+                    <div>
+                        <%# <%= button_to "Attend", event_attendees_path(@event) %> 
+                    </div>
+                </div>
+
             </div>
         <% end %>
     </div>
