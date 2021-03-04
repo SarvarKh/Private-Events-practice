@@ -1,4 +1,4 @@
-class EventsController < ApplicationController
+class EventsController < ApplicationController   
     def index
         @events = Event.all.order("created_at DESC")
         @users = User.all
@@ -21,7 +21,6 @@ class EventsController < ApplicationController
             render :new
         end
     end
-
 
     private
     def event_params
