@@ -11,20 +11,20 @@
     </div>
 
     <div class="container">
-        <div class="row">
+        <div>
             <% @user.attended_events.each do |event| %>
                 <% if event.date > Time.now %>
-                    <div class="col-sm m-1">
-                        <h6> Upcoming events: </h6>
+                    <div class="m-1">
                         <div class="border border-secondary p-2 m-3">
+                            <h6> Upcoming event: </h6>
                             <p><strong>Event Description:</strong> <%= event.description %></p>
                             <p><strong>Event Start Date and Time:</strong> <%= event.date %></p>
                         </div>
                     </div>
                 <% else %>
-                    <div class="col-sm m-1">
-                        <h6> Previously attended events: </h6>
+                    <div class="m-1">
                         <div class="border border-secondary p-2 m-3">
+                            <h6> Previously attended event: </h6>
                             <p><strong>Event Description:</strong> <%= event.description %></p>
                             <p><strong>Event Start Date and Time:</strong> <%= event.date %></p>
                         </div>

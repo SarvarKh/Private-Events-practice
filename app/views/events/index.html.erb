@@ -1,4 +1,18 @@
 <article class="p-3 d-flex justify-content-center">
+
+    <div class="m-5 p-4 border border-primary rounded">
+    <h3>Upcoming events:</h3>
+        <% Event.upcoming_events.each do |upcoming| %>
+            <div class="border border-secondary rounded p-4 mb-3">
+                <p> <strong>Description:</strong> <%= upcoming.description %> </p>
+                <p> <strong>Starts at:</strong> <%= upcoming.date %> </p>
+                
+               
+                
+            </div>
+        <% end %>
+    </div>
+
     <div class="m-5 p-4 border border-primary rounded">
     <h3>Past events:</h3>
         <% Event.past_events.each do |past| %>
@@ -8,16 +22,5 @@
             </div>
         <% end %>
     </div>
-
-    <div class="m-5 p-4 border border-primary rounded">
-    <h3>Upcoming events:</h3>
-        <% Event.upcoming_events.each do |upcoming| %>
-            <div class="border border-secondary rounded p-4 mb-3">
-                <p> <strong>Description:</strong> <%= upcoming.description %> </p>
-                <p> <strong>Starts at:</strong> <%= upcoming.date %> </p>
-            </div>
-        <% end %>
-    </div>
-
 
 </article>
