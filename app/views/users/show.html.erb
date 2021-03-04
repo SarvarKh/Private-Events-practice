@@ -1,22 +1,37 @@
 <article>
-    <div class="p-1 m-3">
-        <h3> <strong>Name:</strong> <%= @user.name %> </h3>
-        <p> <strong>Email:</strong> <%= @user.email %> </p>
-        <h6> Events that I am planning to attend: </h6>
+    <div class="p-1 m-3 d-flex justify-content-center">
+        <div>
+            <h3> <strong>Name:</strong> <%= @user.name %> </h3>
+            <p> <strong>Email:</strong> <%= @user.email %> </p>
+            <p><%= link_to "Edit", edit_user_path(@user) %></p>
+            <p><%= link_to 'Destroy', user_path(@user),
+                            method: :delete,
+                            data: {confirm: "Are you sure?" } %></p>
+        </div>
     </div>
 
-    <% @user.attended_events.each do |event| %>
-        <div class="border border-secondary p-2 m-3">
-            <p><strong>Event Description:</strong> <%= event.description %></p>
-            <p><strong>Event Start Date and Time:</strong> <%= event.date %></p>
+    <div class="container">
+        <div class="row">
+            <% @user.attended_events.each do |event| %>
+                <% if event.date > Time.now %>
+                    <div class="col-sm m-1">
+                        <h6> Upcoming events: </h6>
+                        <div class="border border-secondary p-2 m-3">
+                            <p><strong>Event Description:</strong> <%= event.description %></p>
+                            <p><strong>Event Start Date and Time:</strong> <%= event.date %></p>
+                        </div>
+                    </div>
+                <% else %>
+                    <div class="col-sm m-1">
+                        <h6> Previously attended events: </h6>
+                        <div class="border border-secondary p-2 m-3">
+                            <p><strong>Event Description:</strong> <%= event.description %></p>
+                            <p><strong>Event Start Date and Time:</strong> <%= event.date %></p>
+                        </div>
+                    </div>
+                <% end %>
+            <% end %>
         </div>
-    <% end %>
-
-    <div class="p-1 m-3">
-        <p><%= link_to "Edit", edit_user_path(@user) %></p>
-        <p><%= link_to 'Destroy', user_path(@user),
-                        method: :delete,
-                        data: {confirm: "Are you sure?" } %></p>
     </div>
 
 </article>
