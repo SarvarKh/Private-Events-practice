@@ -1,7 +1,13 @@
 <article>
     <ul>
-        <li> <strong>Creator of the Event:</strong> <%= current_user.name %> </li>
         <li> <strong>Event Description:</strong> <%= @event.description %> </li>
         <li> <strong>Event Start Date:</strong> <%= @event.date %> </li>
+        <br>
+        <span><strong>Event Attendees:</strong></span>
+        <ol>
+            <% @event.attendees.each do |attendee| %> 
+                <li> <%= attendee.name %> </li>
+            <% end %>
+        </ol>
     </ul>
 </article>

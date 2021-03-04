@@ -16,7 +16,6 @@
           <% if current_user %>
             <%= link_to 'Sign Out', session_path('active'), method: :delete, class: "navbar-brand mx-3" %>
             <%= link_to 'Create Event', new_event_path, class: "navbar-brand mx-3" %>
-            <%= link_to 'Events', events_path, class: "navbar-brand mx-3" %>
             <%= link_to current_user.name, current_user, class: "navbar-brand mx-3" %>
           <% else %>
             <%= link_to 'Sign up', new_user_path, class: "navbar-brand mx-3" %>

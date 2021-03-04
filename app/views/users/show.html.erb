@@ -2,10 +2,10 @@
     <div class="p-1 m-3">
         <h3> <strong>Name:</strong> <%= @user.name %> </h3>
         <p> <strong>Email:</strong> <%= @user.email %> </p>
-        <h6> My Events: </h6>
+        <h6> Events that I am planning to attend: </h6>
     </div>
 
-    <% @user.events.each do |event| %>
+    <% @user.attended_events.each do |event| %>
         <div class="border border-secondary p-2 m-3">
             <p><strong>Event Description:</strong> <%= event.description %></p>
             <p><strong>Event Start Date and Time:</strong> <%= event.date %></p>
