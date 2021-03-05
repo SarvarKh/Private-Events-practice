@@ -9,18 +9,17 @@
                 <br>
                 <div>
                     <div>
-                        <p> <strong>Attendees:</strong> </p>               
+                        <p> <strong>Attendees (<%= upcoming.attendees.size %>): </strong> </p>               
                         <% upcoming.attendees.each do |attendee| %>
-                            <ol>
+                            <ul>
                                 <li><%= attendee.name %></li>
-                            </ol>
+                            </ul>
                         <% end %>
                     </div>
                     <div>
-                        <%# <%= button_to "Attend", event_attendees_path(@event) %> 
+                        <%= button_to "Attend", event_attendances_path(upcoming), :class=>"btn btn-success" %> 
                     </div>
                 </div>
-
             </div>
         <% end %>
     </div>

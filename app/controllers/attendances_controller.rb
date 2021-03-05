@@ -1,7 +1,7 @@
 class AttendancesController < ApplicationController
     def create
         @event = Event.find(params[:event_id])
-        @event.attandancees.create!(user: current_user)
-        redirect_to @event
+        @event.attendances.create!(attendee: current_user)
+        redirect_to events_path
     end
 end
