@@ -16,9 +16,15 @@
                             </ul>
                         <% end %>
                     </div>
-                    <div>
-                        <%= button_to "Attend", event_attendances_path(upcoming), :class=>"btn btn-success" %> 
-                    </div>
+                    
+                    <% if current_user %>
+                        <% if  current_user.attendances.find_by(attended_event_id: upcoming.id) %>
+                            <%= button_to "Ignore", event_attendance_path(upcoming, current_user.attendances.find_by(attended_event_id: upcoming.id)), method: :delete, :class=>"btn btn-warning" %> 
+                        <% else %>
+                            <%= button_to "Attend", event_attendances_path(upcoming), :class=>"btn btn-success" %> 
+                        <% end %>
+                    <% end %>
+                    
                 </div>
             </div>
         <% end %>
@@ -30,6 +36,17 @@
             <div class="border border-secondary rounded p-4 mb-3">
                 <p> <strong>Description:</strong> <%= past.description %> </p>
                 <p> <strong>Starts at:</strong> <%= past.date %> </p>
+                <br>
+                <div>
+                    <div>
+                        <p> <strong>Attendees (<%= past.attendees.size %>): </strong> </p>               
+                        <% past.attendees.each do |attendee| %>
+                            <ul>
+                                <li><%= attendee.name %></li>
+                            </ul>
+                        <% end %>
+                    </div>
+                </div>
             </div>
         <% end %>
     </div>
