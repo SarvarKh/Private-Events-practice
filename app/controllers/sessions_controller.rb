@@ -1,6 +1,5 @@
 class SessionsController < ApplicationController
-  def new
-  end
+  def new; end
 
   def create
     user = User.find_by_name(params[:name])
@@ -9,8 +8,8 @@ class SessionsController < ApplicationController
       redirect_to root_path, notice:
       "Welcome #{user.id}, you successfully Signed In!"
     else
-      render "new", alert:
-      "User ID and/or Password Invalid!"
+      render 'new', alert:
+      'User ID and/or Password Invalid!'
     end
   end
 
