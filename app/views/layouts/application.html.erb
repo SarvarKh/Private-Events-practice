@@ -13,14 +13,7 @@
   <body>
     <nav class="navbar-dark bg-secondary p-2 mb-3">
         <div class="d-flex flex-row-reverse">
-          <% if current_user %>
-            <%= link_to 'Sign Out', session_path('active'), method: :delete, class: "navbar-brand mx-3" %>
-            <%= link_to 'Create Event', new_event_path, class: "navbar-brand mx-3" %>
-            <%= link_to current_user.name, current_user, class: "navbar-brand mx-3" %>
-          <% else %>
-            <%= link_to 'Sign up', new_user_path, class: "navbar-brand mx-3" %>
-            <%= link_to 'Sign In', new_session_path, class: "navbar-brand mx-3" %>
-          <% end %>
+          <%= check_user_sign_in %>
           <%= link_to 'Home', root_path, class: "navbar-brand mx-3" %>
         </div>
     </nav>
