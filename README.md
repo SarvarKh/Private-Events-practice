@@ -36,7 +36,12 @@
 - Linters
 
 ## Prerequisites
-Text Editor (VSCode is suggested.) Ruby Rails Bundler Yarn SQL
+Make sure that your system has the proper prerequisites installed. These include:
+- Ruby
+- SQLite3
+- Node.js
+- Yarn
+If you need step by step installation guidence, visit [this page](https://guides.rubyonrails.org/getting_started.html#creating-a-new-rails-project-installing-rails).
 
 ## Getting Started
 
@@ -58,7 +63,7 @@ Please Note that you must have Git installed on your PC, this can be done [here]
 1. Follow Getting Started section to download the app
 2. Open/navigate to the project directory in your terminal
 3. Run `bundle install`
-4. Run rails db:create CLI 
+4. Run `rails db:create`
 5. Migrate, run `rails db:migrate`
 
 ## How to run tests?
