@@ -1,0 +1,21 @@
+<article>
+    <div class="p-1 m-3 d-flex justify-content-center">
+        <div>
+            <h3> <strong>Name:</strong> <%= @user.name %> </h3>
+            <p> <strong>Email:</strong> <%= @user.email %> </p>
+            <p><%= link_to "Edit", edit_user_path(@user) %></p>
+            <p><%= link_to 'Destroy', user_path(@user),
+                            method: :delete,
+                            data: {confirm: "Are you sure?" } %></p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div>
+            <% @user.attended_events.each do |event| %>
+                <%= check_upcoming_event(event) %>
+            <% end %>
+        </div>
+    </div>
+
+</article>

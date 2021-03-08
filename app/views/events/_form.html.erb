@@ -1,0 +1,15 @@
+<%= form_for(@event) do |form| %>
+  <div class="mb-4">
+    <%= form.label :date %><br>
+    <%= form.datetime_select :date %>
+  </div>
+
+  <div class="mb-4">
+    <%= form.label :description %><br>
+    <%= form.text_field :description %>
+  </div>
+
+  <div class="mb-4">
+    <%= form.submit %>
+  </div>
+<% end %>

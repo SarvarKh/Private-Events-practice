@@ -1,0 +1,14 @@
+<div class="border border-secondary rounded w-20 pt-3">
+    <div class="px-5 py-2">
+        <h1 class="my-4">Sign in</h1>
+
+        <%= form_tag sessions_path do %>
+            <%= text_field_tag :name, nil, autofocus: true %>
+                    
+            <%= submit_tag "Sign in", class: "btn btn-large btn-primary" %>
+        <% end %>
+
+        <p>New user? <%= link_to "Sign up now!", new_user_path %></p>
+    </div>
+
+</div>

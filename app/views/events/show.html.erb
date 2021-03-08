@@ -1,0 +1,13 @@
+<article>
+    <ul>
+        <li> <strong>Event Description:</strong> <%= @event.description %> </li>
+        <li> <strong>Event Start Date:</strong> <%= @event.date %> </li>
+        <br>
+        <span><strong>Event Attendees:</strong></span>
+        <ol>
+            <% @event.attendees.each do |attendee| %> 
+                <li> <%= attendee.name %> </li>
+            <% end %>
+        </ol>
+    </ul>
+</article>

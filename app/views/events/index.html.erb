@@ -1,0 +1,54 @@
+<article class="p-3 d-flex justify-content-center">
+
+    <div class="m-5 p-4 border border-primary rounded">
+    <h3>Upcoming events:</h3>
+        <% Event.upcoming_events.each do |upcoming| %>
+            <div class="border border-secondary rounded p-4 mb-3">
+                <p> <strong>Description:</strong> <%= upcoming.description %> </p>
+                <p> <strong>Starts at:</strong> <%= upcoming.date %> </p>
+                <br>
+                <div>
+                    <div>
+                        <p> <strong>Attendees (<%= upcoming.attendees.size %>): </strong> </p>               
+                        <% upcoming.attendees.each do |attendee| %>
+                            <ul>
+                                <li><%= attendee.name %></li>
+                            </ul>
+                        <% end %>
+                    </div>
+                    
+                    <% if current_user %>
+                        <% if  current_user.attendances.find_by(attended_event_id: upcoming.id) %>
+                            <%= button_to "Ignore", event_attendance_path(upcoming, current_user.attendances.find_by(attended_event_id: upcoming.id)), method: :delete, :class=>"btn btn-warning" %> 
+                        <% else %>
+                            <%= button_to "Attend", event_attendances_path(upcoming), :class=>"btn btn-success" %> 
+                        <% end %>
+                    <% end %>
+                    
+                </div>
+            </div>
+        <% end %>
+    </div>
+
+    <div class="m-5 p-4 border border-primary rounded">
+    <h3>Past events:</h3>
+        <% Event.past_events.each do |past| %>
+            <div class="border border-secondary rounded p-4 mb-3">
+                <p> <strong>Description:</strong> <%= past.description %> </p>
+                <p> <strong>Starts at:</strong> <%= past.date %> </p>
+                <br>
+                <div>
+                    <div>
+                        <p> <strong>Attendees (<%= past.attendees.size %>): </strong> </p>               
+                        <% past.attendees.each do |attendee| %>
+                            <ul>
+                                <li><%= attendee.name %></li>
+                            </ul>
+                        <% end %>
+                    </div>
+                </div>
+            </div>
+        <% end %>
+    </div>
+
+</article>

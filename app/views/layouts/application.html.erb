@@ -11,6 +11,15 @@
   </head>
 
   <body>
-    <%= yield %>
+    <nav class="navbar-dark bg-secondary p-2 mb-3">
+        <div class="d-flex flex-row-reverse">
+          <%= check_user_sign_in %>
+          <%= link_to 'Home', root_path, class: "navbar-brand mx-3" %>
+        </div>
+    </nav>
+
+    <div class="p-3 d-flex justify-content-center">
+      <%= yield %>
+    </div>
   </body>
 </html>
